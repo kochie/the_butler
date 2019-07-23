@@ -1,7 +1,32 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "hello world",
+      "types": [{
+        "name": "COFFEE_TYPES",
+        "values": [{
+          "id": "CAPUCCINO",
+          "name": { "value": "capuccino", "synonyms": ["cap"] }
+        }, {
+          "id": "FLAT_WHITE",
+          "name": { "value": "flat white" }
+        }, {
+          "id": "LATTE",
+          "name": { "value": "latte" }
+        }, {
+          "id": "SHORT_BLACK",
+          "name": { "value": "short black" }
+        }, {
+          "id": "LONG_BLACK",
+          "name": { "value": "long black" }
+        }, {
+          "id": "MOCHA",
+          "name": { "value": "mocha", "synonyms": ["chocolate mocha"] }
+        }, {
+          "id": "AMERICANO",
+          "name": { "value": "americano" }
+        }]
+      }],
+      "invocationName": "coffee butler",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -19,6 +44,37 @@
           "name": "HelloWorldIntent",
           "samples": [
             "hello"
+          ]
+        },
+        {
+          "name": "MakeCoffeeIntent",
+          "samples": [
+            "coffee",
+            "make me a coffee",
+            "coffee now",
+            "I need a {coffeeType}",
+            "make me a {coffeeType}",
+            "{coffeeType} stat"
+          ],
+          "slots": [{
+            "name": "coffeeType",
+            "type": "COFFEE_TYPES"
+          }]
+        },
+        {
+          "name": "ReadNewsIntent",
+          "samples": [
+            "read news",
+            "what's the news",
+            "what are todays headlines"
+          ]
+        },
+        {
+          "name": "RecommendCoffeeIntent",
+          "samples": [
+            "What coffee should I have today",
+            "What new coffee's do you know",
+            "Any new brews bro"
           ]
         }
       ]
